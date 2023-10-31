@@ -1,0 +1,36 @@
+diff -Naur allwinner/suniv-f1c100s.dtsi allwinner2/suniv-f1c100s.dtsi
+--- a/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi	2023-10-29 22:10:41.340304446 +0100
++++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s.dtsi	2023-10-29 22:11:01.496563200 +0100
+@@ -198,6 +198,11 @@
+ 				function = "i2c0";
+ 			};
+ 
++			i2c0_pins: i2c0 {
++				pins = "PE11", "PE12";
++				function = "i2c0";
++			};
++	    
+ 			spi0_pc_pins: spi0-pc-pins {
+ 				pins = "PC0", "PC1", "PC2", "PC3";
+ 				function = "spi0";
+diff -Naur allwinner/suniv-f1c100s-licheepi-nano.dts allwinner2/suniv-f1c100s-licheepi-nano.dts
+--- a/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts	2023-10-29 22:10:41.340304446 +0100
++++ b/arch/arm/boot/dts/allwinner/suniv-f1c100s-licheepi-nano.dts	2023-10-29 22:12:03.473358098 +0100
+@@ -71,3 +71,17 @@
+ 	usb0_id_det-gpios = <&pio 4 2 GPIO_ACTIVE_HIGH>; /* PE2 */
+ 	status = "okay";
+ };
++
++&i2c0 {
++   pinctrl-0 = <&i2c0_pins>;
++    pinctrl-names = "default";
++    status = "okay";
++};
++
++&i2c1 {
++	status = "okay";
++};
++
++&i2c2 {
++	status = "okay";
++};

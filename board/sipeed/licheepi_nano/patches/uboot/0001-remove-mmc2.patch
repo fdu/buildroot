@@ -1,0 +1,12 @@
+diff --git a/arch/arm/dts/sunxi-u-boot.dtsi b/arch/arm/dts/sunxi-u-boot.dtsi
+index fdd4c80..87cb966 100644
+--- a/arch/arm/dts/sunxi-u-boot.dtsi
++++ b/arch/arm/dts/sunxi-u-boot.dtsi
+@@ -2,7 +2,6 @@
+ 
+ / {
+ 	aliases {
+-		mmc1 = &mmc2;
+ 	};
+ 
+ 	binman {

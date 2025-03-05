@@ -1,0 +1,29 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+	printf "Starting wifi: "
+	/sbin/modprobe uwe5622_bsp_sdio
+	/sbin/modprobe sprdwl_ng
+	/sbin/modprobe sprdbt_tty
+	sleep 1 && ifup wlan0 >/dev/null 2>&1 &
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Stopping wifi: "
+	/sbin/rmmod sprdbt_tty
+	/sbin/rmmod sprdwl_ng
+	/sbin/rmmod uwe5622_bsp_sdio
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+

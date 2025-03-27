@@ -11,3 +11,6 @@ CONFIG_PWM_SIFIVE=y
 
 # xe
 CONFIG_DRM_XE=m
+
+# nvme
+CONFIG_BLK_DEV_NVME=y
